@@ -100,18 +100,22 @@ ul.addEventListener('click', (e) => {
 
 // Tips
 const overlay = document.getElementById('overlay');
-overlay.style.display = 'none';
 const closeBtn = document.querySelector('.closebtn');
+
 tips.addEventListener('click', () => {
-  overlay.style.display = 'block';
+  overlay.classList.toggle('active');
 });
 
 function closeOverlay() {
-  overlay.style.display = 'none';
+  overlay.classList.remove('active');
 }
+
 closeBtn.addEventListener('click', () => {
-  overlay.style.display = 'none';
+  closeOverlay();
 });
+
 document.addEventListener('keydown', (e) => {
-  if (e.which === 27) overlay.style.display = 'none';
+  if (e.which === 27) {
+    closeOverlay();
+  }
 });
